@@ -24,30 +24,3 @@ class Truck extends Driving {
 	}
 
 }
-
-$truck = new Truck("Iveco", "1", "50", "672AV", "truck");
-
-$truck->startEngine();
-
-$truck->fillTank(40);
-
-while($truck->getFuelLevel() > $truck->fuel_capacity/2) {
-	
-	$truck->accelerate();
-
-}
-
-if($truck->getFuelLevel() == $truck->fuel_capacity/2) {
-	
-	while ($truck->getCurrentSpeed() > 0) {
-
-		$truck->slowDown();		
-	}
-
-	if($truck->getCurrentSpeed() == 0) {
-
-		$truck->stopEngine();
-
-	}
-
-}

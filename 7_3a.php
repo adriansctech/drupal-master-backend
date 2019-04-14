@@ -19,31 +19,3 @@ class Motorbike extends Driving {
 	}
 
 }
-
-$motorbike = new Motorbike("Ducati", "1", "50", "672AV", "motorbike");
-
-$motorbike->startEngine();
-
-$motorbike->fillTank(40);
-
-while($motorbike->getFuelLevel() > $motorbike->fuel_capacity/2) {
-	
-	$motorbike->accelerate();
-
-}
-
-if($motorbike->getFuelLevel() == $motorbike->fuel_capacity/2) {
-	
-	while ($motorbike->getCurrentSpeed() > 0) {
-
-		$motorbike->slowDown();		
-	}
-
-	if($motorbike->getCurrentSpeed() == 0) {
-
-		$motorbike->stopEngine();
-
-	}
-
-}
-
