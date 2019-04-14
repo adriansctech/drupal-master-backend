@@ -9,6 +9,8 @@ class Vehicle {
 	public $seats;
 	public $fuel_capacity;
 	public $license_plate;
+  //Activity 7.3a
+  public $type;
 
 	protected $fuel_level = 0;
 	protected $current_speed = 0;
