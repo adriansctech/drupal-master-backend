@@ -21,8 +21,8 @@ class Vehicle {
 		$this->brand = $brand;
 		$this->seats = $seats;
 		$this->fuel_capacity = $fuel_capacity;
-		$this->license_plate = $license_plate;
-		print ("Se ha registrado el vehículo " .$this->brand . "con matricula " . $license_plate .".</br>");
+		$this->license_plate = $license_plate;		
+		print ("Se ha registrado el vehículo " .$this->brand . " con matricula " . $license_plate .".</br>");		
 	}
 //End of activity 7.2a
 
@@ -50,6 +50,14 @@ class Vehicle {
 	public function getLicensePlate() {
 		return $this->license_plate;
 	}
+	//Getter to know actual fuel Level Activity 7.2c
+	public function getFuelLevel(){
+		return $this->fuel_level;
+	}
+	//Getter to know actual velocity Activity 7.2c
+	public function getCurrentSpeed(){
+		return $this->current_speed;
+	}
 	public function setFuelLevel($fuel_level) {
 		$this->fuel_level = $fuel_level;
 	}
@@ -65,12 +73,12 @@ class Vehicle {
 
 
 //Activity 7.1c
-	public function startEngine() {
-		if($state) {
-			print ("el vehículo " . $this->license_plate . "ya estaba en marcha. </br>");
+	public function startEngine() {		
+		if(!$this->state == 'off') {
+			print ("el vehículo " . $this->license_plate . " ya estaba en marcha. </br>");
 		}else{
 			$this->state = 'on';
-			print ("El vehículo " . $this->license_plate . "se ha arrancado. </br>");
+			print ("El vehículo " . $this->license_plate . " se ha arrancado. </br>");
 		}		
 	}
 
@@ -90,7 +98,7 @@ class Vehicle {
 	}
 
 	public function stopEngine() {
-		if ($current_speed < 1 && $state == 'on') {
+		if ($this->current_speed < 1 && $this->state == 'on') {
 			$this->state = 'off';
 			print ("El vehículo " . $this->license_plate . "se ha apagado. </br>"); 
 		}else {
@@ -99,12 +107,24 @@ class Vehicle {
 	}
 
 	public function fillTank($quantity) {
-		if ($this->fuel_level > $this->fuel_capacity) {
-			print ("El deposito está lleno " . $this->fuel_capacity . ". </br>"); 
+		
+		$rest_deposit = $this->fuel_capacity-$this->fuel_level;
 
-		}else {
-			print ("El vehículo " . $this->license_plate .  "se ha cargao con " . $quantity . "litros de combustible. </br>");
+		if($quantity > $this->fuel_capacity) {
+
+			print("!!! No se puede cargar mass gasolina que la que cabe en el deposito !!! </br>");
+
+		}elseif($quantity > $this->fuel_capacity) {
+
+			print("El depósito está lleno " . $this->fuel_capacity);
+
+		}elseif ($rest_deposit >= $quantity) {
+
+			$this->fuel_level = $quantity;
+			print ("El vehículo " . $this->license_plate .  "se ha cargado con " . $this->fuel_level . " litros de combustible. </br>");			
+
 		}
+		
 	}
 //End of activity 7.1c
 }

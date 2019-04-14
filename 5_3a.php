@@ -2,42 +2,42 @@
   
 $films = [];
 $films = [
-  'first_film' => [
+  '0' => [
     'id' => '00',
     'title' => 'Terminator 2',
     'director' => 'James Cameron',
     'year' => '1991',
     'duration' => '132',
   ],
-  'second_film' => [
+  '1' => [
     'id' => '01',
     'title' => 'The mask',
     'director' => 'Chuck Russell',
     'year' => '1994',
     'duration' => '96',
   ],
-  'third_film' => [
+  '2' => [
     'id' => '03',
     'title' => 'Hook',
     'director' => 'Steven Spielberg',
     'year' => '1991',
     'duration' => '75',
   ],
-  'fourth_film' => [
+  '3' => [
     'id' => '04',
     'title' => 'The ghostbusters',
     'director' => 'John de Cuir',
     'year' => '1984',
     'duration' => '96',
   ],
-  'fivth_film' => [
+  '4' => [
     'id' => '05',
     'title' => 'E.T.',
     'director' => 'Steven Spielberg',
     'year' => '1981',
     'duration' => '102',
   ],
-];
+]; 
 
 echo "<h3>LIST OF FILMS INSIDE ARRAY</h3>";
 echo "<table>";    
@@ -49,13 +49,13 @@ echo "<table>";
     echo "<td>Year</td>";
     echo "<td>Duration</td>";
     echo "<tr>";    
-    foreach ($films as $key => $value) {
-      echo "<td>" . $value['id'];
-      echo "<td>" . $value['title'];
-      echo "<td>" . $value['director'];
-      echo "<td>" . $value['year'];
-      echo "<td>" . $value['duration'];
+    for ($i = 0; $i <= sizeof($films)-1; $i++) {    
+      echo "<td>" . $films[$i]['id'];
+      echo "<td>" . $films[$i]['title'];
+      echo "<td>" . $films[$i]['director'];
+      echo "<td>" . $films[$i]['year'];
+      echo "<td>" . $films[$i]['duration'];
       echo "</td></td></td></td></td></tr>";
-    }    
+  }
   echo "</tbody>";
 echo "</table>";
