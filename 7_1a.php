@@ -9,14 +9,23 @@ class Vehicle {
 	public $seats;
 	public $fuel_capacity;
 	public $license_plate;
-  //Activity 7.3a
-  public $type;
+	//Activity 7.3a
+  	public $type;
+
+  	//Activity 7.3b
+  	public static $vehicle_types = ['motorbike', 'car', 'truck'];
 
 	protected $fuel_level = 0;
 	protected $current_speed = 0;
 	protected $state = 'off';
 //End of activity 7.1a
 
+
+//Activity 7.3b
+	public static function getVehicleTypes(){
+		return self::$vehicle_types;
+	}
+//End of activity 7.3b
 
 //Activity 7.2a Constructor method
 	public function __construct($brand, $seats, $fuel_capacity, $license_plate) {
