@@ -14,12 +14,15 @@ class Cat extends Pet {
 	function __construct($age, $name){
 		parent::__construct($age);
 		$this->name = $name;
-		$this->max_feed = 5;
+		$max_feed = 5;
 		$this->feed = 0;
 	}
 
 	public function feed($quantity){
-		$this->feed = $this->fedd + $quantity;
+		$this->feed = $this->feed + $quantity;
 	}
+  public function getName() {
+    return $this->name;
+  }
 
 }
