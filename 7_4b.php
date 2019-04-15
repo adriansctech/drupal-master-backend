@@ -2,9 +2,11 @@
 
 //Require abstract class -pet
 require_once "7_4a.php";
+require_once "7_6a.php";
 
 class Cat extends Pet {
-	
+  
+  use Insurance;
 	private $name;
 	public static $max_feed;
 	private $feed = 0;
