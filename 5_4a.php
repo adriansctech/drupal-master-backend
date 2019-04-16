@@ -22,8 +22,12 @@ function calculadora ($num1, $num2, $operacion = 'suma') {
       $result =  $num1 * $num2;
       break;
     case 'resto':
-      $result =  $num1 % $num2;
+      if($num2 < 1) {
+        $result = 'ERROR0';
+      }else {
+        $result =  $num1 % $num2;
       break;
+      }
     }
 
     return $result;
