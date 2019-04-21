@@ -83,4 +83,3 @@ print $book->getTitleAndAuthorFormatted() . "</br>";
 //- Para probar el funcionamiento, crea un libro y prueba todos los formatos (y el nuevo formato añadido).  
 $book->setFormatter (new StrategyHyphen());
 print $book->getTitleAndAuthorFormatted() . "</br>";
-
