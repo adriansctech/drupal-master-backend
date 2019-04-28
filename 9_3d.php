@@ -8,10 +8,9 @@
 
 print ("SELECT * FROM employees
 WHERE employees.gender LIKE 'M' 
-AND employees.hire_date < '1989-12-31'
-AND employees.emp_no IN (SELECT emp_no FROM emp_fired)
+AND YEAR(hire_date) > 1998
 UNION
 SELECT * FROM employees
 WHERE employees.gender LIKE 'F' 
-AND employees.hire_date < '1989-12-31'
+AND YEAR(hire_date) > 1998
 AND employees.emp_no NOT IN (SELECT emp_no FROM emp_fired);");
